@@ -1,0 +1,40 @@
+﻿@page
+@model BGB.InternetBanking.Razor.Pages.Login.IndexModel
+@{
+    Layout = "~/Pages/_LayoutOut.cshtml";
+}
+
+<div class="col-md-offset-1 col-md-3">
+    <img src="../img/logo.png" class="img-fluid" alt="Banco Guanabara">
+</div>
+<div class="col-md-offset-2 col-md-3">
+    <div class="col-md-12 dvLogin">
+        <form>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="form-label" for="inputConta">SUA CONTA</label>
+                    <input id="inputConta" class="form-input" placeholder="______-_" autofocus="" style="width:130px;float:left;" aria-describedby="basic-addon2">
+                </div>
+            </div>
+            <div class="col-md-12 btn-submit">
+                <button class="btn btn-sm btn-default btn-block">LOGIN</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('input').focus(function () {
+        $(this).parents('.form-group').addClass('focused');
+    });
+
+    $('input').blur(function () {
+        var inputValue = $(this).val();
+        if (inputValue == "") {
+            $(this).removeClass('filled');
+            $(this).parents('.form-group').removeClass('focused');
+        } else {
+            $(this).addClass('filled');
+        }
+    });
+
+</script>

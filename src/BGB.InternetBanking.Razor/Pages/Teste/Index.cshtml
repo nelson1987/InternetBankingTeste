@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@addTagHelper *, CustomTagHelper
+@{
+    ViewData["Title"] = "Extrato de Contas";
+}
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxgrid.js"></script>
+<script src="~/jqwidgets/jqxgrid.edit.js"></script>
+<script src="~/jqwidgets/jqxgrid.columns-resize.js"></script>
+<script src="~/jqwidgets/jqxgrid.filter.js"></script>
+<script src="~/jqwidgets/jqxgrid.selection.js"></script>
+<script src="~/jqwidgets/jqxgrid.sort.js"></script>
+<script src="~/jqwidgets/jqxgrid.pager.js"></script>
+<script src="~/jqwidgets/jqxgrid.aggregates.js"></script>
+<script src="~/jqwidgets/jqxgrid.grouping.js"></script>
+<script src="~/jqwidgets/jqxmenu.js"></script>
+<script src="~/jqwidgets/jqxlistbox.js"></script>
+<script src="~/jqwidgets/jqxdropdownlist.js"></script>
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" ng-controller="contaCtrl" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">Relatório de Agendas <span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12" ng-controller="contaCtrl" ng-init="situacaoSelecionada = '1';  tipoSelecionado='1'; periodoInicial='02/05/2018'; periodoFinal='09/05/2018'">
+        @*<div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal" method="post">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Credenciadora: </label>
+                                <div class="col-sm-9">
+                                    <select asp-for="Credenciadora" asp-items="Model.CredenciadoraList" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Bandeira: </label>
+                                <div class="col-sm-9">
+                                    <select asp-for="Bandeira" asp-items="Model.BandeiraList" class="form-control">
+                                        <option value="">TODOS</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sel1" style="font-size:1.0rem;" class="col-sm-2 control-label">Período: </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" asp-for="PeriodoInicial" value="@Model.PeriodoInicial.ToString("dd/MM/yyyy")" />
+                                </div>
+                                <label for="sel1" style="font-size:1.0rem;" class="col-sm-1 control-label">até: </label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" asp-for="PeriodoFinal" value="@Model.PeriodoFinal.ToString("dd/MM/yyyy")" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group pull-right">
+                                <button type="submit" class="btn btn-danger">BUSCAR</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>*@
+        <div class="row">
+            <div class="col-md-12">
+                <jqx-grid theme="@ViewData["Theme"]" sortable="true" filterable="true" auto-height="true" width="850" source="Model">
+                    <jqx-grid-columns>
+                        <jqx-grid-column column-group="name" datafield="FirstName" width="100" text="First Name"></jqx-grid-column>
+                        <jqx-grid-column column-group="name" datafield="LastName" width="100" text="Last Name"></jqx-grid-column>
+                        <jqx-grid-column datafield="Title" width="150"></jqx-grid-column>
+                        <jqx-grid-column datafield="Address" width="200"></jqx-grid-column>
+                        <jqx-grid-column datafield="City" width="150"></jqx-grid-column>
+                        <jqx-grid-column datafield="Country"></jqx-grid-column>
+                    </jqx-grid-columns>
+                    <jqx-grid-column-groups>
+                        <jqx-grid-column-group name="name" text="Name"></jqx-grid-column-group>
+                    </jqx-grid-column-groups>
+                </jqx-grid>
+                <table class="table table-condensed table-striped table-bordered" id="grid">
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th> NOME</th>
+                            <th> DATA DE NASCIMENTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Usuarios.Count < 0)
+                        {
+                            <tr>
+                                <td style="text-align: center;" colspan="3">Nenhum Resultado Encontrado</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            foreach (TesteDto usuario in Model.Usuarios)
+                            {
+                                <tr>
+                                    <td style="text-align: left;">@usuario.Id</td>
+                                    <td style="text-align: left;">@usuario.Nome</td>
+                                    <td style="text-align: left;">@usuario.Data.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var tabela
+        $('#grid tbody').html();
+    });
+</script>

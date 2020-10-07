@@ -1,0 +1,154 @@
+﻿@page
+@model ExtratoModel
+@{
+    ViewData["Title"] = "Extrato de Contas";
+}
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">@ViewData["Title"] <span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-9">
+                <form class="form-inline" method="post">
+                    <label for="sel1" style="font-size:1.0rem;" class="col-md-offset-1 col-md-1">Conta: </label>
+                    @*<select ng-init="contaSelecionada = '1'" ng-model="contaSelecionada" class="form-control col-md-3" id="sel1">
+                            <option ng-repeat="x in data.Contas" value="{{x.Id}}" selected>{{x.Codigo +"/"+x. Tipo}}</option>
+                        </select>*@
+                    <select asp-for="Filtro.AccountId" asp-items="Model.Filtro.AccountList" class="form-control col-md-3">
+                        <option value="0">All</option>
+                    </select>
+                    <label for="sel1" style="font-size:1.0rem;" class="col-md-1">Período: </label>
+                    <div class="input-group col-md-3" style="padding-left: 15px; padding-right: 15px;">
+                        <div class="input-group-addon">De</div>
+                        <input class="form-control" asp-for="Filtro.PeriodoInicial" />
+                        @*<input type="text" class="form-control" id="example" value="02/05/2018">*@
+                        <div class="input-group-addon">até</div>
+                        @*<input type="text" class="form-control" id="exampleInputAmount" asp-for="PeriodoInicial">*@
+                        <input class="form-control" asp-for="Filtro.PeriodoFinal" />
+                    </div>
+                    <input id="btnAtualizar" value="FILTRAR" class="btn btn-danger col-md-1" />
+                    @Html.AntiForgeryToken()
+                </form>
+                <br />
+                <br />
+                <br />
+                <div class="table-scroll">
+                    <table class="table table-condensed table-striped table-bordered" id="grid">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">DATA</th>
+                                <th style="text-align: left;">DOCUMENTO</th>
+                                <th style="text-align: left;">DESCRICAO</th>
+                                <th style="text-align: right;">VALOR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Api.Contracts.Datas.CheckingAccountMovementDto movimento in Model.Movements)
+                            {
+                                <tr>
+                                    <td style="text-align: center;">@movimento.MovementDate.ToString("dd/MM/yyyy")</td>
+                                    <td style="text-align: left;">{{ x.Documento }}</td>
+                                    <td style="text-align: left;">@movimento.Document </td>
+                                    <td style="text-align: right;">
+                                        @{if (movimento.Amount < 0)
+                                            {<span style="color:red;">@movimento.Amount.ToString("R$ 0,0.00")</span>}
+                                        else
+                                            {<span>@movimento.Amount.ToString("R$ 0,0.00")</span>}
+                                        }
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <ul class="list-group col-md-12 no-right" style="padding-bottom: 15px;">
+                        <li class="list-group-item list-group-item-danger">Conta Corrente</li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo </span>&nbsp;<span style="width:50%; float:right;">R$ 100.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo Bloqueado</span>&nbsp;<span style="width:50%; float:right;">R$ 0,00</span></li>
+                    </ul>
+                    <br />
+                    <ul class="list-group col-md-12 no-right">
+                        <li class="list-group-item list-group-item-danger">Cheque Empresarial</li>
+                        <li class="list-group-item"><span style="width:50%;">Limite Disponível</span>&nbsp;<span style="width:50%; float:right;">R$ 100.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo Disponível</span>&nbsp;<span style="width:50%; float:right;">R$ 200.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Vencimento</span>&nbsp;<span style="width:50%; float:right;">31/07/2018</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#btnAtualizar').click(function () {
+            var person = {
+                PeriodoInicial: $("[name='Filtro.PeriodoInicial']").val(),
+                PeriodoFinal: $("[name='Filtro.PeriodoFinal']").val(),
+                AccountId: parseInt($("[name='Filtro.AccountId']").val())
+            };
+            if (person.AccountId != 1)
+                BuscarContas(person.AccountId);
+
+            $.ajax({
+                type: "POST",
+                url: "./Extrato?handler=Send",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("XSRF-TOKEN",
+                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                },
+                data: JSON.stringify(person),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    //console.log("Response", response);
+                    var dvItems = $("#grid tbody");
+                    dvItems.empty();
+                    $.each(response, function (i, item) {
+                        console.log("A CADA I - ", i);
+                        console.log("A CADA ITEM - ", item);
+
+                        var $tdMovementDate = $('<td>').append(item.movementDate);
+                        var $tdDocument = $('<td>').append(item.document);
+                        var $tdPaymentType = $('<td>').append(item.paymentType);
+                        var $tdAmount = $('<td>').append(item.amount);
+
+                        var $tr = $('<tr>')
+                            .append($tdMovementDate)
+                            .append($tdDocument)
+                            .append($tdPaymentType)
+                            .append($tdAmount)
+                            .appendTo(dvItems);
+                    });
+                },
+                failure: function (response) {
+                    console.log("Response", response);
+                    alert(response);
+                }
+            });
+        });
+    });
+
+    function BuscarContas(accountNumber)
+    { 
+
+    }
+    function Success() {
+        // do something on success client side.
+        $('#successmessage').removeClass("bg-warning");
+        $('#successmessage').removeClass("bg-danger");
+        $('#successmessage').addClass("bg-success");
+
+        $('#successmessage').text("The form was saved!");
+    }
+</script>

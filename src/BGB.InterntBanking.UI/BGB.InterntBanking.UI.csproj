@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net47</TargetFramework>
+	<TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\app\app.component.ts" />
+    <Content Remove="wwwroot\app\app.module.ts" />
+    <Content Remove="wwwroot\app\app.routing.ts" />
+    <Content Remove="wwwroot\app\home\home.component.ts" />
+    <Content Remove="wwwroot\app\home\index.ts" />
+    <Content Remove="wwwroot\app\login\index.ts" />
+    <Content Remove="wwwroot\app\_models\index.ts" />
+    <Content Remove="wwwroot\app\_models\user.ts" />
+    <Content Remove="wwwroot\app\_services\index.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="entityframework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\app\app.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.module.ts" />
+    <TypeScriptCompile Include="wwwroot\app\app.routing.ts" />
+    <TypeScriptCompile Include="wwwroot\app\home\home.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\home\index.ts" />
+    <TypeScriptCompile Include="wwwroot\app\login\index.ts" />
+    <TypeScriptCompile Include="wwwroot\app\main.ts" />
+    <TypeScriptCompile Include="wwwroot\app\_models\index.ts" />
+    <TypeScriptCompile Include="wwwroot\app\_models\user.ts" />
+    <TypeScriptCompile Include="wwwroot\app\_services\index.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\app\_directives\" />
+    <Folder Include="wwwroot\app\_guards\" />
+    <Folder Include="wwwroot\app\register\" />
+  </ItemGroup>
+
+</Project>

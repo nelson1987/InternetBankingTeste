@@ -1,0 +1,11 @@
+Account				- Conta
+Card				- Cartão
+Checking Account	- Conta Corrente
+Customer			- Cliente
+Deed				- Título
+Guarantee			- Garantia
+Index				
+Investment			- Investimento, Renda Fixa
+Security			- Segurança
+User				- Usuário
+WithDrawal 			- Retirada,Saque

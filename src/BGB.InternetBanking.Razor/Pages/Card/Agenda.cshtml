@@ -1,0 +1,105 @@
+﻿@page
+@model AgendaModel
+@{
+    ViewData["Title"] = "Relatório de Agendas";
+}
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">@ViewData["Title"] <span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Credenciadora: </label>
+                            <div class="col-sm-9">
+                                @Html.DropDownListFor(x => x.Credemciadora, Model.ListagemCredenciadora, "Todos", new { @class = "form-control" })
+                                <select asp-for="Credemciadora" asp-items="Model.ListagemCredenciadora" class="form-control">
+                                    <option value="">TODOS</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Bandeira: </label>
+                            <div class="col-sm-9">
+                                @Html.DropDownListFor(x => x.Bandeira, Model.ListagemBandeira, "Todos", new { @class = "form-control" })
+                                <select asp-for="Bandeira" asp-items="Model.ListagemBandeira" class="form-control">
+                                    <option value="">TODOS</option>
+                                </select>
+                                @*<select ng-model="tipoSelecionado" class="form-control" id="sel1">
+            <option value="1">Todos</option>
+            <option value="2">Desconto em Cheque</option>
+            <option value="3">Desconto de Duplicatas</option>
+            <option value="4">Garantia de Cheque</option>
+            <option value="5">Garantia de Notas Promissórias</option>
+            <option value="6">Garantia de Duplicatas</option>
+            <option value="7">Cobrança Simples de Duplicatas</option>
+            <option value="8">Cessão de Crédito</option>
+        </select>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-2 control-label">Período: </label>
+                            <div class="col-sm-4">
+                                @*<input type="text" ng-model="periodoInicial" class="form-control" id="sel1" />*@
+                                <input class="form-control" asp-for="Model.Filtro.periodoInicial" />
+                            </div>
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-1 control-label">até: </label>
+                            <div class="col-sm-5">
+                                @*<input type="text" ng-model="periodoFinal" class="form-control" id="sel1" />*@
+                                <input class="form-control" asp-for="Model.Filtro.periodoFinal" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group pull-right">
+                            <button type="button" class="btn btn-danger" ng-click="filtrarTitulo()">BUSCAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th> Ponto Venda</th>
+                            <th> Natureza</th>
+                            <th> Bandeira</th>
+                            <th> Credenciadora</th>
+                            <th> Data Pagamento</th>
+                            <th> Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Api.Contracts.Datas.CardMovementDto item in Model.Movements)
+                        {
+                            <tr>
+                                <td style="text-align: left;">@item.SalePoint</td>
+                                <td style="text-align: left;">@item.Type.ToString()</td>
+                                <td style="text-align: left;">{{ x.Bandeira }}</td>
+                                <td style="text-align: left;">{{ x.Credenciadora }}</td>
+                                <td style="text-align: left;">@item.LiquidationDate</td>
+                                <td style="text-align: left;">@item.Amount</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

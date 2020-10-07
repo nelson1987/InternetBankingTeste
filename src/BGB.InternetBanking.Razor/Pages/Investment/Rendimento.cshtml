@@ -1,0 +1,219 @@
+﻿@page
+@model RendimentoModel
+@{
+    ViewData["Title"] = "Extrato de Contas";
+}
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" ng-controller="contaCtrl" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">@ViewData["Title"] <span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12" ng-controller="contaCtrl">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-inline">
+                    <label for="sel1" style="font-size:1.0rem;" class="col-md-offset-1 col-md-1">Conta: </label>
+                    @*<select ng-init="contaSelecionada = '1'" ng-model="contaSelecionada" class="form-control col-md-3" id="sel1">
+                        <option ng-repeat="x in data.Contas" value="{{x.Id}}" selected>{{x.Codigo +"/"+x. Tipo}}</option>
+                    </select>*@
+                    <select asp-for="Model.Filtro.Conta" asp-items="Model.Filtro.ListagemContas"></select>
+                    <label for="sel1" style="font-size:1.0rem;" class="col-md-1">Período: </label>
+                    <div class="input-group col-md-3" style="padding-left: 15px; padding-right: 15px;">
+                        <div class="input-group-addon">De</div>
+                        @*<input type="text" class="form-control" id="exampleInputAmount" value="02/05/2018">*@
+                        <input class="form-control" asp-for="Model.Filtro.PeriodoInicial" />
+                        <div class="input-group-addon">até</div>
+                        @*<input type="text" class="form-control" id="exampleInputAmount" value="09/05/2018">*@
+                        <input class="form-control" asp-for="Model.Filtro.PeriodoFinal" />
+                    </div>
+                    <input type="button" class="btn btn-danger col-md-1" id="sel1" value="Exibir" />
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="table-scroll">
+                    <table class="table table-condensed table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">DATA</th>
+                                <th style="text-align: left;">DOCUMENTO</th>
+                                <th style="text-align: left;">DESCRICAO</th>
+                                <th style="text-align: right;">VALOR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Api.Contracts.Datas.CheckingAccountMovementDto movimento in Model.Movements)
+                            {
+                                <tr>
+                                    <td style="text-align: center;">@movimento.MovementDate</td>
+                                    <td style="text-align: left;">{{ x.Documento }}</td>
+                                    <td style="text-align: left;">@movimento.Document </td>
+                                    <td style="text-align: right;">
+                                        @if (movimento.Amount < 0)
+                                        {<span style="color:red;">@movimento.Amount</span>}
+                                    else
+                                    {<span>@movimento.Amount</span>}
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <ul class="list-group col-md-12 no-right" style="padding-bottom: 15px;">
+                        <li class="list-group-item list-group-item-danger">Conta Corrente</li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo </span>&nbsp;<span style="width:50%; float:right;">R$ 100.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo Bloqueado</span>&nbsp;<span style="width:50%; float:right;">R$ 0,00</span></li>
+                    </ul>
+                    <br />
+                    <ul class="list-group col-md-12 no-right">
+                        <li class="list-group-item list-group-item-danger">Cheque Empresarial</li>
+                        <li class="list-group-item"><span style="width:50%;">Limite Disponível</span>&nbsp;<span style="width:50%; float:right;">R$ 100.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Saldo Disponível</span>&nbsp;<span style="width:50%; float:right;">R$ 200.000,00</span></li>
+                        <li class="list-group-item"><span style="width:50%;">Vencimento</span>&nbsp;<span style="width:50%; float:right;">31/07/2018</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="row" style="margin-top:15px;">
+        <div class="col-md-12">
+
+            <!-- Conta Corrente -->
+            <div class="row" style="padding-bottom: 15px;">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12 no-left no-right">
+                            <div class="form-inline">
+                                <label for="sel1" style="font-size:1.0rem;" class="col-md-1">Conta: </label>
+                                <select class="form-control col-md-11" id="sel1">
+                                    <option ng-repeat="x in data.Contas" value="{{x.Id}}" selected>{{x.Codigo +"/"+x. Tipo}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12 no-left no-right" style="margin-top:15px;">
+                            <table class="table table-condensed table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-1" style="text-align: center;">DATA</th>
+                                        <th class="col-xs-9" style="text-align: left;">DESCRIÇÃO</th>
+                                        <th class="col-xs-2" style="text-align: right;">VALOR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @if (Model.Movements != null)
+                                    {
+                                        foreach (var movement in Model.Movements)
+                                        {
+                                            <tr>
+                                                <td style="text-align: center;">@movement.MovementDate.Date.ToShortDateString()</td>
+                                                <td style="text-align: left;">@movement.History.Description </td>
+                                                <td style="text-align: right;">
+                                                    <span style="color:red;">@movement.Amount</span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+
+                    <div class="row">
+                        <ul class="list-group col-md-12 no-right" style="padding-bottom: 15px;">
+                            <li class="list-group-item list-group-item-danger">Conta Corrente</li>
+
+                            @if (Model.Balance != null)
+                            {
+                                <li class="list-group-item"><span style="width:50%;">Saldo </span>&nbsp;<span style="width:50%; float:right;">@Model.Balance.Amount</span></li>
+                                <li class="list-group-item"><span style="width:50%;">Saldo Bloqueado</span>&nbsp;<span style="width:50%; float:right;">@Model.Balance.Blocked</span></li>
+                            }
+                        </ul>
+                        <br />
+                        <ul class="list-group col-md-12 no-right">
+                            @if (Model.Balance != null)
+                            {
+                                <li class="list-group-item list-group-item-danger">Cheque Empresarial</li>
+                                <li class="list-group-item"><span style="width:50%;">Limite Disponível</span>&nbsp;<span style="width:50%; float:right;">@Model.Balance.BusinessCheck.Limit</span></li>
+                                <li class="list-group-item"><span style="width:50%;">Saldo Disponível</span>&nbsp;<span style="width:50%; float:right;">@Model.Balance.Available</span></li>
+                                if (Model.Balance.BusinessCheck != null && @Model.Balance.BusinessCheck.End.HasValue)
+                                {
+                                    <li class="list-group-item"><span style="width:50%;">Vencimento</span>&nbsp;<span style="width:50%; float:right;">Model.Balance.BusinessCheck.End.Value.Date.ToShortDateString()</span></li>
+                                }
+                                else
+                                {
+                                    <li class="list-group-item"><span style="width:50%;">Vencimento</span>&nbsp;<span style="width:50%; float:right;">&nbsp;</span></li>
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <!-- Garantias -->
+                <div class="col-md-6">
+                    <ul class="list-group col-md-12">
+                        <li class="list-group-item col-md-12 list-group-item-danger">Garantias</li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Garantia Exigida</span><span class="col-md-3 no-left no-right text-center">@Model.Guarantee.Required.ToString("N2")</span>
+                            <span class="col-md-3 no-left no-right">Garantia Vencidas</span><span class="col-md-3 no-left no-right text-center">@Model.Guarantee.Expired.ToString("N2")</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Garantias em Duplicata</span><span class="col-md-3 no-left no-right text-center">@Model.Guarantee.Duplicate.ToString("N2")</span>
+                            <span class="col-md-3 no-left no-right">Saldo Total - C/C</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.CheckingAccountBalance != null ? Model.Guarantee.CheckingAccountBalance.Amount.ToString("N2") : 0.ToString("N2")) </span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Garantia em Cheque</span><span class="col-md-3 no-left no-right text-center">@Model.Guarantee.Check.ToString("N2")</span>
+                            <span class="col-md-3 no-left no-right">Bloqueio - C/C	</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.CheckingAccountBalance != null ? Model.Guarantee.CheckingAccountBalance.Blocked.ToString("N2") : 0.ToString("N2"))</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Saldo Total - C/C Vinculada</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.GuaranteedAccountBalance != null ? Model.Guarantee.GuaranteedAccountBalance.Amount.ToString("N2") : 0.ToString("N2")) </span>
+                            <span class="col-md-3 no-left no-right">Saldo - C/C</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.CheckingAccountBalance != null ? Model.Guarantee.CheckingAccountBalance.Available.ToString("N2") : 0.ToString("N2"))</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Bloqueio - C/C Vinculada</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.GuaranteedAccountBalance != null ? Model.Guarantee.GuaranteedAccountBalance.Blocked.ToString("N2") : 0.ToString("N2"))</span>
+                            <span class="col-md-3 no-left no-right">Margem Disponível	</span><span class="col-md-3 no-left no-right text-center">@Model.Guarantee.Margin.ToString("N2")</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-md-3 no-left no-right">Saldo - C/C Vinculada</span><span class="col-md-3 no-left no-right text-center">@(Model.Guarantee.GuaranteedAccountBalance != null ? Model.Guarantee.GuaranteedAccountBalance.Available.ToString("N2") : 0.ToString("N2"))</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Arquivos -->
+                <div class="col-md-3 no-left">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">Arquivos</li>
+                        <li class="list-group-item"><div class="row"><div class="col-md-3 no-left no-right">10/05/2018</div><div class="col-md-9 no-left no-right"><span class="btn-link-danger">Comunicado Carteira 110_Nova Cobrança.pdf</span></div></div></li>
+                        <li class="list-group-item"><div class="row"><div class="col-md-3 no-left no-right">03/05/2018</div><div class="col-md-9 no-left no-right"><span class="btn-link-danger">Comunicado Carteira 109_Nova Cobrança.pdf</span></div></div></li>
+                    </ul>
+                </div>
+
+                <!-- Informações -->
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">Informação</li>
+                        <li class="list-group-item text-center">
+                            <span class="alert-link">NOVA COBRANÇA</span><br />
+                            Fique atento às adequações no nosso serviço de Cobrança.
+                            <span class="btn-link">Clique aqui.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>*@

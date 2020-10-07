@@ -1,0 +1,42 @@
+﻿@page
+@model _AccountSummaryModel
+@*@{
+    ViewData["Title"] = "Home page";
+}*@
+<!-- Conta Corrente -->
+        <div class="row">
+            <div class="col-md-12 no-left no-right">
+                <div class="form-inline">
+                    <label for="sel1" style="font-size:1.0rem;" class="col-md-1">Conta: </label>
+                    @*<select asp-for="Account" asp-items="Model.AccountList" class="form-control col-md-11">
+                        <option value="">TODOS</option>
+                    </select>*@
+                </div>
+            </div>
+            <div class="col-md-12 no-left no-right" style="margin-top:15px;">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1" style="text-align: center;">DATA</th>
+                            <th class="col-xs-9" style="text-align: left;">DESCRIÇÃO</th>
+                            <th class="col-xs-2" style="text-align: right;">VALOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Movements != null)
+                        {
+                            foreach (var movement in Model.Movements)
+                            {
+                                <tr>
+                                    <td style="text-align: center;">@*@movement.MovementDate.Date.ToShortDateString()</td>
+                                    <td style="text-align: left;">@movement.History.Description </td>
+                                    <td style="text-align: right;">
+                                        <span style="color:red;">@movement.Amount</span>*@
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>

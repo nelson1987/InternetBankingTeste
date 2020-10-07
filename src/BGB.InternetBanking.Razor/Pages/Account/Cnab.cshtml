@@ -1,0 +1,44 @@
+﻿@page
+@model CnabModel
+@{
+    ViewData["Title"] = "Geração Arquivo CNAB";
+}
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">@ViewData["Title"]<span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12" ng-controller="contaCtrl" ng-init="situacaoSelecionada = '1';  tipoSelecionado='1'; periodoInicial='02/05/2018'; periodoFinal='09/05/2018'">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" method="post">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Situacao: </label>
+                            <div class="col-sm-9">
+                                <select asp-for="DataSituacao" asp-items="Model.ListagemData">
+                                    @*<option value="">All</option>*@
+                                </select>
+                                @*<select ng-model="situacaoSelecionada" class="form-control" id="sel1" ng-change="modificarTabela();">
+                                    <option value="1">03/05/2018</option>
+                                    <option value="2">04/04/2018</option>
+                                    <option value="3">03/03/2018</option>
+                                </select>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-danger">GERAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

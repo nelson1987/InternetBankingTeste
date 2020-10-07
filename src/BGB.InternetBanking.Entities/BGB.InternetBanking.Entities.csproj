@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3605AE56-275E-4BA7-A4D1-0E2265D0C562}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BGB.InternetBanking.Models</RootNamespace>
+    <AssemblyName>BGB.InternetBanking.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acquirer.cs" />
+    <Compile Include="BindedAccount.cs" />
+    <Compile Include="Cpf.cs" />
+    <Compile Include="EventLog.cs" />
+    <Compile Include="InvestmentMovement.cs" />
+    <Compile Include="BusinessCheck.cs" />
+    <Compile Include="CardMovement.cs" />
+    <Compile Include="Enums\InvestmentMovementTypeEnum.cs" />
+    <Compile Include="Enums\CardMovementEnum.cs" />
+    <Compile Include="Establishment.cs" />
+    <Compile Include="Flag.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CheckingAccount.cs" />
+    <Compile Include="Credential.cs" />
+    <Compile Include="Deed.cs" />
+    <Compile Include="DeedStatus.cs" />
+    <Compile Include="Enums\DeedTypeEnum.cs" />
+    <Compile Include="Enums\OperationDeedEnum.cs" />
+    <Compile Include="Enums\ProfileEnum.cs" />
+    <Compile Include="Enums\AccountTypeEnum.cs" />
+    <Compile Include="Enums\PaymentTypeEnum.cs" />
+    <Compile Include="Enums\PersonTypeEnum.cs" />
+    <Compile Include="Enums\WalletEnum.cs" />
+    <Compile Include="Guarantee.cs" />
+    <Compile Include="CheckingAccountHistory.cs" />
+    <Compile Include="CheckingAccountMovement.cs" />
+    <Compile Include="GuarantorPayer.cs" />
+    <Compile Include="Holiday.cs" />
+    <Compile Include="Index.cs" />
+    <Compile Include="IndexQuotation.cs" />
+    <Compile Include="Instruction.cs" />
+    <Compile Include="InvestmentBalance.cs" />
+    <Compile Include="InvestmentStatement.cs" />
+    <Compile Include="Paper.cs" />
+    <Compile Include="Parameter.cs" />
+    <Compile Include="Payee.cs" />
+    <Compile Include="Payer.cs" />
+    <Compile Include="PresumedIncome.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GuaranteeBoard.cs" />
+    <Compile Include="CheckingAccountBalance.cs" />
+    <Compile Include="Specifications\CpfSpecs\CpfIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CpfSpecs\CpfIsValidSpec.cs" />
+    <Compile Include="Specifications\CustomerSpecs\CustomerAccountIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CustomerSpecs\CustomerCpfCnpjIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CustomerSpecs\CustomerNameIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CustomerSpecs\CustomerNameLengthCanNotGreaterThan50Spec.cs" />
+    <Compile Include="Specifications\CredentialSpecs\CredentialKeyIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CredentialSpecs\CredentialLoginIsRequiredSpec.cs" />
+    <Compile Include="Specifications\CredentialSpecs\CredentialLoginLengthCanNotBeGreaterThan30Spec.cs" />
+    <Compile Include="Specifications\PayeeSpecs\PayeeCpfIsRequiredSpec.cs" />
+    <Compile Include="Specifications\PayeeSpecs\PayeeNameIsRequiredSpec.cs" />
+    <Compile Include="Specifications\PayeeSpecs\PayeeNameLengthCanNotBeGreaterThan100Spec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserCustomerIsRequiredSpec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserCredentialIsRequiredSpec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserEmailIsRequiredSpec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserEmailLengthCanNotBeGreaterThan100Spec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserNameIsRequiredSpec.cs" />
+    <Compile Include="Specifications\UserSpecs\UserNameLengthCanNotGreaterThan50Spec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalAmountGreaterMinimumSpec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalAmountIsRequiredSpec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalExpectedDateIsValidSpec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalExpectedDateOnDeadlineSpec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalFinalityIsRequiredSpec.cs" />
+    <Compile Include="Specifications\WithdrawalSpecs\WithdrawalFinalityLengthCanNotBeGreaterThan150Spec.cs" />
+    <Compile Include="Status.cs" />
+    <Compile Include="TypeStatus.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Validations\CpfIsValidValidation.cs" />
+    <Compile Include="Validations\CustomerIsValidValidation.cs" />
+    <Compile Include="Validations\CredentialIsValidValidation.cs" />
+    <Compile Include="Validations\PayeeIsValidValidation.cs" />
+    <Compile Include="Validations\UserIsValidValidation.cs" />
+    <Compile Include="Validations\WithdrawalIsValidValidation.cs" />
+    <Compile Include="WithdrawalCommunication.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

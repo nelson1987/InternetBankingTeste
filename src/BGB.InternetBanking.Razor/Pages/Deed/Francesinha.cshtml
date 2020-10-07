@@ -1,0 +1,115 @@
+﻿@page
+@model FrancesinhaModel
+@{
+    ViewData["Title"] = "Extrato de Contas";
+}
+
+<label>@Model.Message</label>
+<div class="row">
+    <div class="col-sm-12" ng-controller="contaCtrl" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">Extrato de Títulos <span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12" ng-controller="contaCtrl" ng-init="situacaoSelecionada = '1';  tipoSelecionado='1'; periodoInicial='02/05/2018'; periodoFinal='09/05/2018'">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Situacao: </label>
+                            <div class="col-sm-9">
+                                <select ng-model="situacaoSelecionada" class="form-control" id="sel1" ng-change="modificarTabela();">
+                                    <option value="1">A Vencer</option>
+                                    <option value="2">Vencido</option>
+                                    <option value="3">Liquidado</option>
+                                    <option value="4">Baixado</option>
+                                    <option value="5">Em aberto</option>
+                                    <option value="6">Em Cartório</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-2 control-label">Tipo: </label>
+                            <div class="col-sm-10">
+                                <select ng-model="tipoSelecionado" class="form-control" id="sel1">
+                                    <option value="1">Todos</option>
+                                    <option value="2">Desconto em Cheque</option>
+                                    <option value="3">Desconto de Duplicatas</option>
+                                    <option value="4">Garantia de Cheque</option>
+                                    <option value="5">Garantia de Notas Promissórias</option>
+                                    <option value="6">Garantia de Duplicatas</option>
+                                    <option value="7">Cobrança Simples de Duplicatas</option>
+                                    <option value="8">Cessão de Crédito</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-md-2 control-label">Período: </label>
+                            <div class="col-sm-4">
+                                <input type="text" ng-model="periodoInicial" class="form-control" id="sel1" />
+                            </div>
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-1 control-label">até: </label>
+                            <div class="col-sm-5">
+                                <input type="text" ng-model="periodoFinal" class="form-control" id="sel1" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-4 control-label">Nome Sacado: </label>
+                            <div class="col-sm-8">
+                                <input type="text" ng-model="nomeSacado" class="form-control" id="sel1" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="sel1" style="font-size:1.0rem;" class="col-sm-3 control-label">Cpf/Cnpj Sacado: </label>
+                            <div class="col-sm-9">
+                                <input type="text" ng-model="documentoSacado" class="form-control" id="sel1" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" ng-click="filtrarTitulo()">BUSCAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th ng-repeat="x in modelo.cabecalho">{{x.Nome | uppercase}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in modelo.data">
+                            <td style="text-align: left;">{{ x.Vencimento }}</td>
+                            <td style="text-align: left;">{{ x.Sacado }}</td>
+                            <td style="text-align: left;">{{ x.Documento }}</td>
+                            <td style="text-align: left;">{{ x.Contrato }}</td>
+                            <td style="text-align: left;">{{ x.Carteira }}</td>
+                            <td style="text-align: left;">{{ x.Valor }}</td>
+                            <td style="text-align: left;">{{ x.Encargo }}</td>
+                            <td style="text-align: left;">{{ x.ValorPago }}</td>
+                            <td style="text-align: center; cursor:pointer;">
+                                <i class="glyphicon glyphicon-print"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

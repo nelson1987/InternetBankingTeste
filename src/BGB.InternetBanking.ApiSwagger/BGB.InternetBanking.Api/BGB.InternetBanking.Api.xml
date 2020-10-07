@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BGB.InternetBanking.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BGB.InternetBanking.Api.Controllers.AccountController">
+            <summary>
+            Contas
+            </summary>
+        </member>
+        <member name="T:BGB.InternetBanking.Api.Controllers.CardController">
+            <summary>
+            Recebíveis de Cartão
+            </summary>
+        </member>
+        <member name="T:BGB.InternetBanking.Api.Controllers.CheckingAccountController">
+            <summary>
+            Conta Corrente
+            </summary>
+        </member>
+        <member name="T:BGB.InternetBanking.Api.Controllers.CustomerController">
+            <summary>
+            Cliente
+            </summary>
+        </member>
+    </members>
+</doc>

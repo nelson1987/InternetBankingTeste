@@ -1,0 +1,37 @@
+﻿@page
+@model ReportModel
+@{
+    ViewData["Title"] = "Relatório";
+}
+
+<div class="row">
+    <div class="col-sm-12" style="">
+        <ol class="breadcrumb" style="border-bottom: 1px solid #a10017; background-color:white;">
+            <li class="active page-title">Relatório<span class="pull-right btn-print-dark"><i class="glyphicon glyphicon-print"></i>&nbsp;</span></li>
+        </ol>
+    </div>
+</div>
+<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th> NOME</th>
+                            <th> DATA DE NASCIMENTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left;">usuario.Id</td>
+                            <td style="text-align: left;">usuario.Nome</td>
+                            <td style="text-align: left;">usuario.Data.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

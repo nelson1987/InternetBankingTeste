@@ -1,0 +1,196 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{8FE0D053-C97A-42D1-BC0F-B65B23882E90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{990D7841-B575-478D-B746-8A2437067AF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Framework", "0 - Framework", "{8C7C520D-B4EB-468B-A6AA-00A5AB605859}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Infrastructure", "1 - Infrastructure", "{C52D9E6A-55A5-4727-A741-3178A1702C04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1919971F-0EA0-4ED2-90A3-A6D6EC1924D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core.Log", "BGB.Core.Log\BGB.Core.Log.csproj", "{CAE63DAA-94A7-4AD5-86F4-B11A385969FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Models", "BGB.InternetBanking.Models\BGB.InternetBanking.Models.csproj", "{3E28FF2C-61AA-45AA-A417-FD8010621F8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core.Validations", "BGB.Core.Validations\BGB.Core.Validations.csproj", "{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Maps", "BGB.InternetBanking.Maps\BGB.InternetBanking.Maps.csproj", "{3990477B-1536-4B6B-A67A-104EC2A801D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core", "BGB.Core\BGB.Core.csproj", "{620F3C90-70F7-451F-A40D-FE0535C0554F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core.Repository", "BGB.Core.Repository\BGB.Core.Repository.csproj", "{7943607F-07C8-4CB6-A63E-DCD4425D7D71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Repositories.Interfaces", "BGB.InternetBanking.Repositories.Interfaces\BGB.InternetBanking.Repositories.Interfaces.csproj", "{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Repositories", "BGB.InternetBanking.Repositories\BGB.InternetBanking.Repositories.csproj", "{1BD6FF4B-F623-4F28-9069-4409C55FB83B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Services.Interfaces", "BGB.InternetBanking.Services.Interfaces\BGB.InternetBanking.Services.Interfaces.csproj", "{D3B97977-EF53-4A10-84FB-552036FAC2A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Services", "BGB.InternetBanking.Services\BGB.InternetBanking.Services.csproj", "{EA36FC42-591D-418E-AEBF-84EA21477FA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Api.Contracts", "BGB.InternetBanking.Api.Contracts\BGB.InternetBanking.Api.Contracts.csproj", "{C4715312-76A2-4A72-BEA5-0A0E06EECE6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core.Security", "BGB.Core.Security\BGB.Core.Security.csproj", "{B0984D32-9C10-478B-8370-CE97DC933AB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - User Interface", "4 - User Interface", "{4C237C2D-C5B3-4C8B-8863-4D76080ACAE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Razor", "BGB.InternetBanking.Razor\BGB.InternetBanking.Razor.csproj", "{DAD85007-D77A-4FC2-8696-837F793B3F16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Api", "BGB.InternetBanking.ApiSwagger\BGB.InternetBanking.Api\BGB.InternetBanking.Api.csproj", "{D430637F-3414-4415-8624-06EF539F4F82}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3990477B-1536-4B6B-A67A-104EC2A801D2} = {3990477B-1536-4B6B-A67A-104EC2A801D2}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAE63DAA-94A7-4AD5-86F4-B11A385969FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE63DAA-94A7-4AD5-86F4-B11A385969FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE63DAA-94A7-4AD5-86F4-B11A385969FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE63DAA-94A7-4AD5-86F4-B11A385969FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E28FF2C-61AA-45AA-A417-FD8010621F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E28FF2C-61AA-45AA-A417-FD8010621F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E28FF2C-61AA-45AA-A417-FD8010621F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E28FF2C-61AA-45AA-A417-FD8010621F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3990477B-1536-4B6B-A67A-104EC2A801D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3990477B-1536-4B6B-A67A-104EC2A801D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3990477B-1536-4B6B-A67A-104EC2A801D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3990477B-1536-4B6B-A67A-104EC2A801D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620F3C90-70F7-451F-A40D-FE0535C0554F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620F3C90-70F7-451F-A40D-FE0535C0554F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620F3C90-70F7-451F-A40D-FE0535C0554F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620F3C90-70F7-451F-A40D-FE0535C0554F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7943607F-07C8-4CB6-A63E-DCD4425D7D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7943607F-07C8-4CB6-A63E-DCD4425D7D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7943607F-07C8-4CB6-A63E-DCD4425D7D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7943607F-07C8-4CB6-A63E-DCD4425D7D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD6FF4B-F623-4F28-9069-4409C55FB83B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD6FF4B-F623-4F28-9069-4409C55FB83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD6FF4B-F623-4F28-9069-4409C55FB83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD6FF4B-F623-4F28-9069-4409C55FB83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B97977-EF53-4A10-84FB-552036FAC2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B97977-EF53-4A10-84FB-552036FAC2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B97977-EF53-4A10-84FB-552036FAC2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B97977-EF53-4A10-84FB-552036FAC2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA36FC42-591D-418E-AEBF-84EA21477FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA36FC42-591D-418E-AEBF-84EA21477FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA36FC42-591D-418E-AEBF-84EA21477FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA36FC42-591D-418E-AEBF-84EA21477FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4715312-76A2-4A72-BEA5-0A0E06EECE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4715312-76A2-4A72-BEA5-0A0E06EECE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4715312-76A2-4A72-BEA5-0A0E06EECE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4715312-76A2-4A72-BEA5-0A0E06EECE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0984D32-9C10-478B-8370-CE97DC933AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0984D32-9C10-478B-8370-CE97DC933AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0984D32-9C10-478B-8370-CE97DC933AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0984D32-9C10-478B-8370-CE97DC933AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD85007-D77A-4FC2-8696-837F793B3F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD85007-D77A-4FC2-8696-837F793B3F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD85007-D77A-4FC2-8696-837F793B3F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD85007-D77A-4FC2-8696-837F793B3F16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D430637F-3414-4415-8624-06EF539F4F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D430637F-3414-4415-8624-06EF539F4F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D430637F-3414-4415-8624-06EF539F4F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D430637F-3414-4415-8624-06EF539F4F82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAE63DAA-94A7-4AD5-86F4-B11A385969FC} = {8C7C520D-B4EB-468B-A6AA-00A5AB605859}
+		{3E28FF2C-61AA-45AA-A417-FD8010621F8D} = {8FE0D053-C97A-42D1-BC0F-B65B23882E90}
+		{6B94162A-AF6C-4F24-80A7-26B3B22A5FDB} = {8C7C520D-B4EB-468B-A6AA-00A5AB605859}
+		{3990477B-1536-4B6B-A67A-104EC2A801D2} = {C52D9E6A-55A5-4727-A741-3178A1702C04}
+		{620F3C90-70F7-451F-A40D-FE0535C0554F} = {8C7C520D-B4EB-468B-A6AA-00A5AB605859}
+		{7943607F-07C8-4CB6-A63E-DCD4425D7D71} = {8C7C520D-B4EB-468B-A6AA-00A5AB605859}
+		{F3EEC54E-AFD9-49C3-9244-E9806C0FF2B5} = {C52D9E6A-55A5-4727-A741-3178A1702C04}
+		{1BD6FF4B-F623-4F28-9069-4409C55FB83B} = {C52D9E6A-55A5-4727-A741-3178A1702C04}
+		{D3B97977-EF53-4A10-84FB-552036FAC2A8} = {8FE0D053-C97A-42D1-BC0F-B65B23882E90}
+		{EA36FC42-591D-418E-AEBF-84EA21477FA5} = {8FE0D053-C97A-42D1-BC0F-B65B23882E90}
+		{C4715312-76A2-4A72-BEA5-0A0E06EECE6E} = {990D7841-B575-478D-B746-8A2437067AF5}
+		{B0984D32-9C10-478B-8370-CE97DC933AB7} = {8C7C520D-B4EB-468B-A6AA-00A5AB605859}
+		{DAD85007-D77A-4FC2-8696-837F793B3F16} = {4C237C2D-C5B3-4C8B-8863-4D76080ACAE6}
+		{D430637F-3414-4415-8624-06EF539F4F82} = {990D7841-B575-478D-B746-8A2437067AF5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {945D126A-CA72-44D6-8F80-389E87347528}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bancoguanabara.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BGB.Core.Log\\BGB.Core.Log.csproj
+		SccProjectTopLevelParentUniqueName1 = BGB.InternetBanking.sln
+		SccProjectName1 = BGB.Core.Log
+		SccLocalPath1 = BGB.Core.Log
+		SccProjectUniqueName2 = BGB.InternetBanking.Models\\BGB.InternetBanking.Models.csproj
+		SccProjectTopLevelParentUniqueName2 = BGB.InternetBanking.sln
+		SccProjectName2 = BGB.InternetBanking.Models
+		SccLocalPath2 = BGB.InternetBanking.Models
+		SccProjectUniqueName3 = BGB.Core.Validations\\BGB.Core.Validations.csproj
+		SccProjectTopLevelParentUniqueName3 = BGB.InternetBanking.sln
+		SccProjectName3 = BGB.Core.Validations
+		SccLocalPath3 = BGB.Core.Validations
+		SccProjectUniqueName4 = BGB.InternetBanking.Maps\\BGB.InternetBanking.Maps.csproj
+		SccProjectTopLevelParentUniqueName4 = BGB.InternetBanking.sln
+		SccProjectName4 = BGB.InternetBanking.Maps
+		SccLocalPath4 = BGB.InternetBanking.Maps
+		SccProjectUniqueName5 = BGB.Core\\BGB.Core.csproj
+		SccProjectTopLevelParentUniqueName5 = BGB.InternetBanking.sln
+		SccProjectName5 = BGB.Core
+		SccLocalPath5 = BGB.Core
+		SccProjectUniqueName6 = BGB.Core.Repository\\BGB.Core.Repository.csproj
+		SccProjectTopLevelParentUniqueName6 = BGB.InternetBanking.sln
+		SccProjectName6 = BGB.Core.Repository
+		SccLocalPath6 = BGB.Core.Repository
+		SccProjectUniqueName7 = BGB.InternetBanking.Repositories.Interfaces\\BGB.InternetBanking.Repositories.Interfaces.csproj
+		SccProjectTopLevelParentUniqueName7 = BGB.InternetBanking.sln
+		SccProjectName7 = BGB.InternetBanking.Repositories.Interfaces
+		SccLocalPath7 = BGB.InternetBanking.Repositories.Interfaces
+		SccProjectUniqueName8 = BGB.InternetBanking.Repositories\\BGB.InternetBanking.Repositories.csproj
+		SccProjectTopLevelParentUniqueName8 = BGB.InternetBanking.sln
+		SccProjectName8 = BGB.InternetBanking.Repositories
+		SccLocalPath8 = BGB.InternetBanking.Repositories
+		SccProjectUniqueName9 = BGB.InternetBanking.Services.Interfaces\\BGB.InternetBanking.Services.Interfaces.csproj
+		SccProjectTopLevelParentUniqueName9 = BGB.InternetBanking.sln
+		SccProjectName9 = BGB.InternetBanking.Services.Interfaces
+		SccLocalPath9 = BGB.InternetBanking.Services.Interfaces
+		SccProjectUniqueName10 = BGB.InternetBanking.Services\\BGB.InternetBanking.Services.csproj
+		SccProjectTopLevelParentUniqueName10 = BGB.InternetBanking.sln
+		SccProjectName10 = BGB.InternetBanking.Services
+		SccLocalPath10 = BGB.InternetBanking.Services
+		SccProjectUniqueName11 = BGB.InternetBanking.Api.Contracts\\BGB.InternetBanking.Api.Contracts.csproj
+		SccProjectTopLevelParentUniqueName11 = BGB.InternetBanking.sln
+		SccProjectName11 = BGB.InternetBanking.Api.Contracts
+		SccLocalPath11 = BGB.InternetBanking.Api.Contracts
+		SccProjectUniqueName12 = BGB.Core.Security\\BGB.Core.Security.csproj
+		SccProjectTopLevelParentUniqueName12 = BGB.InternetBanking.sln
+		SccProjectName12 = BGB.Core.Security
+		SccLocalPath12 = BGB.Core.Security
+		SccProjectUniqueName13 = BGB.InternetBanking.Razor\\BGB.InternetBanking.Razor.csproj
+		SccProjectTopLevelParentUniqueName13 = BGB.InternetBanking.sln
+		SccProjectName13 = BGB.InternetBanking.Razor
+		SccLocalPath13 = BGB.InternetBanking.Razor
+		SccProjectUniqueName14 = BGB.InternetBanking.ApiSwagger\\BGB.InternetBanking.Api\\BGB.InternetBanking.Api.csproj
+		SccProjectTopLevelParentUniqueName14 = BGB.InternetBanking.sln
+		SccProjectName14 = BGB.InternetBanking.ApiSwagger/BGB.InternetBanking.Api
+		SccLocalPath14 = BGB.InternetBanking.ApiSwagger\\BGB.InternetBanking.Api
+	EndGlobalSection
+EndGlobal
