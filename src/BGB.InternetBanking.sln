@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.InternetBanking.Models"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Models", "3_Models", "{7BF236A9-87BB-4EF2-A0F9-D3BF8E31C30D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{1EF2C15C-D6C9-497B-8046-13658E2CAC27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGB.Core.Validations", "BGB.Core.Validations\BGB.Core.Validations.csproj", "{CB32E135-A740-4CDE-8745-D372F4786B26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{AFE26C2B-1EE8-471A-95AF-99AD02C26A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFE26C2B-1EE8-471A-95AF-99AD02C26A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFE26C2B-1EE8-471A-95AF-99AD02C26A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB32E135-A740-4CDE-8745-D372F4786B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB32E135-A740-4CDE-8745-D372F4786B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB32E135-A740-4CDE-8745-D372F4786B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB32E135-A740-4CDE-8745-D372F4786B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{59DC4C8A-6BF9-424D-A1A2-4248D3AF665E} = {E0E05755-794D-4244-80F0-129414B90E82}
 		{FDA2FA88-8F74-4641-9D70-AA4D631EF97F} = {E0E05755-794D-4244-80F0-129414B90E82}
 		{AFE26C2B-1EE8-471A-95AF-99AD02C26A7F} = {7BF236A9-87BB-4EF2-A0F9-D3BF8E31C30D}
+		{CB32E135-A740-4CDE-8745-D372F4786B26} = {1EF2C15C-D6C9-497B-8046-13658E2CAC27}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B1B7322-B940-4389-AAFC-7A7CCFFCB004}
